@@ -1,0 +1,5 @@
+{
+  "mongo": {
+    "uri": "mongodb://dev:classystore@ds025762.mlab.com:25762/classystore"
+  }
+}
