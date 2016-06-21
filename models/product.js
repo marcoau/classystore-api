@@ -9,14 +9,8 @@ const productSchema = new mongoose.Schema({
     type: String,
     index: true,
   },
-  name: {
-    en: String,
-    'zh-HK': String,
-  },
-  description: {
-    en: String,
-    'zh-HK': String,
-  },
+  name: Object,
+  description: Object,
   imageUrl: String,
   originalPrice: Number,
   price: {
