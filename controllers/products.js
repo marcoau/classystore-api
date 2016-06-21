@@ -21,9 +21,24 @@ function getProducts(req, res) {
   if(query.brand) match.brand = query.brand;
   if(query.variant) match.variant = query.variant;
 
+  const project = {
+    _id: 0,
+    productId: 1,
+    name: 1,
+    description: 1,
+    imageUrl: 1,
+    price: 1,
+    originalPrice: 1,
+    category: 1,
+    type: 1,
+    brand: 1,
+    variant: 1,
+  };
+
   const aggregate = [
     { $match: match },
-    { $limit: 20 }
+    { $limit: 20 },
+    { $project: project },
   ];
 
   Product.aggregate(aggregate)
