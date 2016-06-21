@@ -5,7 +5,13 @@ const eslint = require('gulp-eslint');
 const nodemon = require('gulp-nodemon');
 const sequence = require('gulp-sequence');
 
-const JS_PATHS = ['gulpfile.js', 'app.js', 'lib/**/*.js'];
+const JS_PATHS = [
+  'gulpfile.js',
+  'app.js',
+  'models/**/*.js',
+  'routes/**/*.js',
+  'controllers/**/*.js',
+];
 
 function lint() {
   const lintConfigs = {
@@ -19,6 +25,7 @@ function lint() {
       'comma-dangle': ['error', 'always-multiline'],
       indent: ['error', 2, { SwitchCase: 1 }],
       'no-console': ['off'],
+      'no-empty': ['off'],
     },
   };
 
