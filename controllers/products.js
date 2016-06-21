@@ -1,8 +1,6 @@
 'use strict';
 
-const mongoose = require('mongoose');
 const models = require('./../models');
-
 const Product = models.Product;
 
 function getProducts(req, res) {
@@ -50,5 +48,5 @@ function getProducts(req, res) {
 }
 
 module.exports = {
-  getProducts: getProducts
+  getProducts: getProducts,
 };
