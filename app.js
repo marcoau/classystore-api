@@ -10,6 +10,14 @@ const PORT = 8001;
 
 const app = express();
 
+// TODO: remove allowance of any origin later
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header("Access-Control-Allow-Headers", 'Origin, X-Requested-With, Content-Type, Accept');
+
+  next();
+});
+
 const router = require('./routes');
 app.use(router);
 
