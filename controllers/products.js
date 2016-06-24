@@ -47,6 +47,29 @@ function getProducts(req, res) {
     });
 }
 
+function getProduct(req, res) {
+  const pId = req.params.pId;
+  if(!pId) return res.sendStatus(403);
+
+  const query = {
+    productId: pId,
+  };
+
+  Product.findOne(query)
+    .exec((err, product) => {
+      if(err) return res.sendStatus(500);
+      if(!product) return res.sendStatus(404);
+
+      // TODO: use a better way to remove unwanted fields
+      const productData = product.toObject();
+      delete productData._id;
+      delete productData.__v;
+
+      return res.send({ data: productData });
+    });
+}
+
 module.exports = {
   getProducts: getProducts,
+  getProduct: getProduct,
 };
